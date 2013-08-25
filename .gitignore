@@ -1,5 +1,8 @@
 *~
 *.acn
+*.bcf
+*.xml
+*.pdf
 *.acr
 *.alg
 *.aux
