@@ -1,0 +1,87 @@
+% !TEX TS-program = xelatex
+\documentclass[print]{friggeri-cv}
+
+\begin{document}
+\header{Honglin}{Zhang}
+{}
+
+% In the aside, each new line forces a line break
+\begin{aside}
+  \section{about}
+  3921 Pine St, Apt 2F
+  Philadelphia, PA
+  19104
+  +1~(215)~460-1823
+  \href{mailto:honglinz@seas.upenn.edu}{honglinz@seas.upenn.edu}
+  \href{http://www.seas.upenn.edu/~honglinz/}{www.seas.upenn.edu/$\sim$honglinz/}
+  \section{languages}
+  Chinese (native)
+  English (professional)
+  German (elementary)
+  \section{programming}
+  C/C++, Java, Python/Ruby
+  FORTRAN, OpenMP/MPI, MATLAB/Mathematica
+  \LaTeX, SVN/Git, Bash/Zsh
+\end{aside}
+
+\section{relevant coursework}
+machine learning, databases, distributed systems, parallel computation, numerical methods for ODE, PDE, and SDE, probability, statistical physics, nonlinear dynamics
+\section{education}
+
+\begin{entrylist}
+  \entry
+    {05/2014}
+    {Master of Computer and Information Technology}
+    {\emph{4.00~/~4.00}}
+    {University of Pennsylvania, Philadelphia, PA}
+  \entry
+    {07/2012}
+    {Bachelor of Science, Physics and Mathematics}
+    {\emph{85~/~100}}
+    {Tsinghua University, Beijing, China}
+\end{entrylist}
+\section{experience}
+\begin{entrylist}
+  \entry
+  {now}
+  {University of Pennsylvania}
+  {Teaching Assistant}
+  {taught mathematical foundations of computer science; recitation topics include logic and proof, counting, probability and graphs.}
+  \entry
+  {05 - 08/2013}
+  {Amazon Web Services}
+  {Software Development Engineer Intern}
+  {optimized the webpage rendering time on algorithmic level, saving rendering time up to 86\%; built a rails web application as security tools from scratch using EC2, S3, CloudFormation, CloudSearch, RDS, SNS, SQS, IAM.}
+  \entry
+  {2010-2012}
+  {Department of Physics, Tsinghua University}
+  {Researcher}
+  {studied bifurcation and noise impact of Helium ionization in strong laser field; program optimization experience with Vtune and compiler; proficient with OpenMP and MPI programming on clusters (512 cores); hands-on experience with probability, statistics, stochastic process simulation, and Hamiltonian systems.}
+\end{entrylist}
+\section{projects}
+\begin{entrylist}
+  \entry
+  {05/2013}
+  {Distributed Search Engine From Scratch}
+  {50,000+ lines}
+  {a Googe-style decentralized search engine, including distributed, scalable crawling, indexing with ranking, and PageRank for result showing; personally involved in incremental page indexing (200, 000+ pages), weighted term frequency calculation (meta-data analysis), NLP performance tuning (36 times faster), and ranking function optimization.}
+  \entry
+  {08/2010}
+  {C++ Code Analyzer}
+  {2,000+ lines}
+  {a program written by a four-person group that analyzed function calls and variable references; group leader, hands-on experience with text parsing.}
+  \entry
+  {05/2011}
+  {Atmospheric Simulation on Distributed System}
+  {}
+  {first started with OpenMP in C, later rewritten with MPI; 4-dimension “matrix” numerical calculation; 10 GB scale data management; multi-core programming experience.}
+\end{entrylist}
+\section{organizations}
+\begin{entrylist}
+  \entry
+  {2012-2013}
+  {Emacs Club}
+  {Core Member}
+  {weekly discussions about emacs packages and elisp techniques.}
+\end{entrylist}
+\end{document}
