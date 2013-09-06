@@ -72,7 +72,7 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.5cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.0cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
       \fontsize{40pt}{72pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
@@ -82,7 +82,7 @@
       \thinfont #3%
     };
   \end{tikzpicture}
-  \vspace{1.5cm}
+  \vspace{1.2cm}
   \vspace{-2\parskip}
 }
 
@@ -159,7 +159,7 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{5.0}(0.6, 3.3)
+  \begin{textblock}{5.0}(0.6, 3.0)
   \begin{flushright}
   \obeycr
 }{%
@@ -282,5 +282,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2cm,nohead,nofoot]{geometry}
 \RequirePackage{hyperref}
