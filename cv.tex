@@ -1,0 +1,250 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV for A4 paper format
+% XeLaTeX Template
+% Version 1.1
+%
+% A4 version author:
+% Marvin Frommhold (depressiverobot.com)
+% https://github.com/depressiveRobot/friggeri-cv-a4
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Options
+% 'print': remove colors from this template for printing
+% 'nocolors' to disable colors in section headers
+\documentclass[]{friggeri-cv-a4}
+\renewcommand{\labelitemii}{$\cdot$}
+
+\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+
+\begin{document}
+
+\header{Honglin }{Zhang} % Your name and current job title/field
+
+%----------------------------------------------------------------------------------------
+% SIDEBAR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{about}
+15907 SE 48th Dr,
+Bellevue, WA
+98006
+\href{tel:(215) 460-1823}{(215) 460-1823}
+\href{mailto:honglinz.t@gmail.com}{honglinz.t@gmail.com}
+\section{specialties}
+Java/Scala, C/C++, Haskell, Javascript/Typescript, Python/Ruby/Perl, Emacs/VS Code/IntelliJ, Kafka, NoSQL, Mesos/K8S, Distributed Systems, Transpiler/Type Systems, Machine Learning Infra, Scientific Computation
+\end{aside}
+
+%----------------------------------------------------------------------------------------
+% WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+\section{experience}
+\begin{entrylist}
+%------------------------------------------------
+\entry
+    {2022-Now}
+    {Twitter, Content Health Signals}
+    {Staff Software Engineer, Tech Lead}
+    {
+      newly founded team, 3 engineer new hires, 0.5 EM, 0.5 PM
+      \begin{itemize}
+      \item process
+        \begin{itemize}
+        \item introduced sprint planning process to the team
+        \item led the team agreement on "how we operate as a team" in doc
+        \end{itemize}
+      \item mentoring
+        \begin{itemize}
+        \item onboarding new hires to the tech stack at Twitter
+        \item mentoring engs on the team on how to mentor
+        \end{itemize}
+      \item roadmap
+        \begin{itemize}
+        \item developing the team roadmap for the next 1 year, focusing on incremental customer value and long-term direction alignment
+        \end{itemize}
+      \end{itemize}
+    }
+\end{entrylist}
+\begin{entrylist}
+  \entry
+      {20201-2022}
+      {Twitter, Content Health Detection Infra}
+      {Staff Software Engineer, Tech Lead}
+      {
+        \begin{itemize}
+        \item process
+          \begin{itemize}
+          \item coached others to streamline sprint planning, customer request triaging, and backlog prioritization
+          \end{itemize}
+        \item mentoring
+          \begin{itemize}
+          \item onboarded 1 EMs, 2 PMs, 1 TPM, 1 SRE and 6+ engs from 3 timezones in 6+ locations
+          \item help engineers on the team and in other orgs grow and get promoted
+          \item identified and grew the new TL on the team
+          \item recurring 1:1s with project leads on communication, delegation and technical ambiguity
+          \end{itemize}
+        \item team execution and KR
+          \begin{itemize}
+          \item led the execution of merging the acquired rules engine, Smyte, with the on-prem rules engine
+          \item broke down multi-year projects to incremental projects, identified project leads and held project leads accountable
+          \item established project progress newsletter cadence and handed off to a TPM
+          \item developed team quarterly and yearly KRs and coached the new TL to continue driving roadmap development
+          \end{itemize}
+        \item cross-team collaboration
+          \begin{itemize}
+          \item lead contributor in defining the Technical Design Review process in the org
+          \item lead contributor in estabilishing the process of content Health incidents
+          \item member of promo commitee for Staff engineer candidates
+          \end{itemize}
+        \item key event timelines
+          \begin{itemize}
+          \item transferred the TL responsibility to the new TL in early 2022
+          \end{itemize}
+        \end{itemize}
+      }
+\end{entrylist}
+\begin{entrylist}
+  \entry
+      {2017-2020}
+      {Twitter, Content Health Detection Infra}
+      {Senior Software Engineer}
+      {
+        \begin{itemize}
+        \item process
+          \begin{itemize}
+          \item introduced the process of sprint planning and customer request triaging to the team
+          \end{itemize}
+        \item mentoring
+          \begin{itemize}
+          \item onboarded 1 EMs and 3 engs from acquisition
+          \end{itemize}
+        \item rules engine improvement
+          \begin{itemize}
+          \item ran parity checks and led parity fixes for a re-written rules engine
+          \item proposed and led a 3-person group to migrate the legacy rules engine to the newly re-written one without downtime
+          \item proposed to merge the acquired rules engine, Smyte, with the on-prem rules engine after building a transpiler prototype
+          \end{itemize}
+        \item cross-team collaboration
+          \begin{itemize}
+          \item threat modeling with the security team. The result  was used as an example for the company.
+          \item piloted with NoSQL DB team to adopt RocksDB for the company and provided feedback to the rollout plan
+          \end{itemize}
+        \item key event timelines
+          \begin{itemize}
+          \item acted as the team Tech Lead since late 2018, officially titled as the Tech Lead in early 2020
+          \item promoted to Staff Software Engineer in early 2021
+          \end{itemize}
+        \end{itemize}
+      }
+\end{entrylist}
+\begin{entrylist}
+  \entry
+  {2015-2017}
+  {Twitter, Content Health Detection Infra}
+  {Software Engineer II}
+  {
+    one of the 4 founding members of the only infra team in the org
+    \begin{itemize}
+    \item process
+      \begin{itemize}
+      \item proposed, led and advocated oncall best practices to reduce the operational burden on the team. Go-to person for investigating system incidents, build and deploy failures
+      \end{itemize}
+    \item timeseries DB improvement
+      \begin{itemize}
+      \item proposed, advocated and built a HyperLogLog timeseries database and integrated with the rules engine, resulting in 60\% to 80\% QPS reduction compared to a regular counter timeseries database
+      \item built a Heron-based generic Monoid aggregation pipeline to avoid counter write-path race conditions, adopted by the decayed counter timeseries database
+      \end{itemize}
+    \item rules engine improvement
+      \begin{itemize}
+      \item introduced Thrift-based Object-Oriented support to the Domain Specific Language in the rules engine
+      \end{itemize}
+    \item cross-team collaboration
+      \begin{itemize}
+      \item built integrations between the on-prem rules engine and the acquired Vine and Periscope products on AWS to expand the surface of content health detection
+      \end{itemize}
+    \item promoted to Senior Software Engineer in 2017
+    \end{itemize}
+  }
+\end{entrylist}
+\begin{entrylist}
+\entry
+    {2015}
+    {Amazon Web Services, CloudFront}
+    {Software Development Engineer}
+    {
+      performance and scalability team
+      \begin{itemize}
+      \item built a system that checks the whole SSL trust chain and sends notifications before any certificate in the chain expires
+      \item converted a gatekeeper health check model to a centraizlied health check model, saving CPU cycles on thousands of machines
+      \item simplified the end-customer request flow from 5 hops to 4 hops, providing extra capacity during the peak traffic season
+      \end{itemize}
+    }
+\entry
+    {2014}
+    {Amazon Web Services, Silk Browser}
+    {Software Development Engineer}
+    {rendering engine team
+      \begin{itemize}
+      \item fixed bugs and security issues on WebKit rendering engine (C++, \textasciitilde1,000,000 lines code base)
+      \item reduced metrics dashboard loading time from 20+ seconds to 6 seconds with python profiling and DB migration
+      \end{itemize}
+    }
+\entry
+    {2013}
+    {Amazon Web Services, Security Tools}
+    {Software Development Engineer Intern}
+    {
+      detection and triaging platform team
+      \begin{itemize}
+      \item algorithmic level webpage rendering time improvement, reducing rendering time from 70+ seconds to 10 seconds
+      \item built security monitoring service with Ruby on Rails from scratch using EC2, S3, CloudFormation, CloudSearch, RDS, SNS, SQS, IAM.
+      \end{itemize}
+    }
+%------------------------------------------------
+\end{entrylist}
+%----------------------------------------------------------------------------------------
+% EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+\section{education}
+\begin{entrylist}
+%------------------------------------------------
+\entry
+    {2012--2014}
+    {Master of Computer and Information Technology}
+    {}
+    {University of Pennsylvania, Philadelphia, PA}
+%------------------------------------------------
+\entry
+    {2008--2012}
+    {Bachelor of Science, Physics and Mathematics}
+    {}
+    {Tsinghua University, Beijing, China}
+%------------------------------------------------
+\end{entrylist}
+%----------------------------------------------------------------------------------------
+\section{tech talks}
+\begin{entrylist}
+
+%------------------------------------------------
+
+\entry
+{2018}
+{\href{https://www.meetup.com/Seattle-Scala-User-Group/events/tmkmjpyxnbmb/}{Kafka \& Content Health Infra at Twitter}}
+{Scala at the Sea}
+{100+ participants; recruited 1 engineer; more talks were scheduled at Twitter due to the success of this first talk}
+%------------------------------------------------
+
+\end{entrylist}
+\end{document}

@@ -1,6 +1,7 @@
-\ProvidesClass{friggeri-cv}[2012/04/30 CV class]
+\ProvidesClass{friggeri-cv-a4}[2015/10/22 CV class]
 \NeedsTeXFormat{LaTeX2e}
 
+\DeclareOption{nocolors}{\def\@cv@nocolors{}}
 \DeclareOption{print}{\def\@cv@print{}}
 \DeclareOption*{%
   \PassOptionsToClass{\CurrentOption}{article}%
@@ -8,6 +9,11 @@
 \ProcessOptions\relax
 \LoadClass{article}
 
+% set A4 paper format
+\setlength\paperheight {297mm}
+\setlength\paperwidth  {210mm}
+
+\ProcessOptions
 
 %%%%%%%%%%
 % Colors %
@@ -31,6 +37,7 @@
   \colorlet{green}{gray}
   \colorlet{orange}{gray}
   \colorlet{purple}{gray}
+  \colorlet{brown}{gray}
   \colorlet{red}{gray}
   \colorlet{blue}{gray}
   \colorlet{fillheader}{white}
@@ -42,12 +49,23 @@
 \colorlet{textcolor}{gray}
 \colorlet{headercolor}{gray}
 
+\ifdefined\@cv@nocolors
+  \colorlet{green}{gray}
+  \colorlet{rdfgreen}{gray}
+  \colorlet{orange}{gray}
+  \colorlet{rdforange}{gray}
+  \colorlet{purple}{gray}
+  \colorlet{rdfpurple}{gray}
+  \colorlet{brown}{gray}
+  \colorlet{red}{gray}
+  \colorlet{blue}{gray}
+\fi
+
 %%%%%%%%%
 % Fonts %
 %%%%%%%%%
-
 \RequirePackage[quiet]{fontspec}
-\RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
+\RequirePackage{unicode-math}
 
 \newfontfamily\bodyfont[]{Helvetica Neue}
 \newfontfamily\thinfont[]{Helvetica Neue Light}
@@ -57,6 +75,7 @@
 \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
 
 \setmathfont{XITS Math}
+%%%
 
 %%%%%%%%%%
 % Header %
@@ -72,7 +91,7 @@
 
 \newcommand{\header}[3]{%
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=3.0cm] (box) at (current page.north){};
+    \node [rectangle, fill=fillheader, anchor=north, minimum width=\paperwidth, minimum height=4cm] (box) at (current page.north){};
     \node [anchor=center] (name) at (box) {%
       \fontsize{40pt}{72pt}\color{header}%
       {\thinfont #1}{\bodyfont  #2}
@@ -82,7 +101,7 @@
       \thinfont #3%
     };
   \end{tikzpicture}
-  \vspace{1.2cm}
+  \vspace{2.5cm}
   \vspace{-2\parskip}
 }
 
@@ -90,7 +109,6 @@
 %%%%%%%%%%%%%
 % Structure %
 %%%%%%%%%%%%%
-\RequirePackage[hidelinks]{hyperref}
 \RequirePackage{parskip}
 
 \newcounter{colorCounter}
@@ -102,7 +120,8 @@
         red\or%
         orange\or%
         green\or%
-        purple\else%
+        purple\or%
+        brown\else%
         headercolor\fi%
     } #1#2#3%
   }%
@@ -118,9 +137,15 @@
   \par\vspace{\parskip}
 }
 
-\renewcommand{\subsection}[2]{
+\renewcommand{\subsection}[1]{
   \par\vspace{.5\parskip}%
-  \Large\headingfont\color{headercolor} #2%
+  {\Large\headingfont\color{headercolor} #1}
+  \par\vspace{.25\parskip}%
+}
+
+\renewcommand{\subsubsection}[2]{
+  \par\vspace{.5\parskip}%
+  {\Large\headingfont\color{headercolor} #2}
   \par\vspace{.25\parskip}%
 }
 
@@ -139,10 +164,10 @@
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
+  \parbox[t]{2cm}{#1}&\parbox[t]{11.3cm}{%
     \textbf{#2}%
     \hfill%
-    {\footnotesize #3}\\%
+    {\footnotesize\addfontfeature{Color=lightgray} #3}\\%
     #4\vspace{\parsep}%
   }\\}
 
@@ -159,7 +184,7 @@
   \renewcommand{\section}[1]{
     \par\vspace{\baselineskip}{\Large\headingfont\color{headercolor} ##1}
   }
-  \begin{textblock}{5.0}(0.6, 3.0)
+  \begin{textblock}{3.6}(1.5, 4.33)
   \begin{flushright}
   \obeycr
 }{%
@@ -173,9 +198,10 @@
 % Bibliography %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
+\RequirePackage[backend=biber, style=verbose, maxnames=99, sorting=ydnt]{biblatex}
 
 \DeclareFieldFormat[article]{title}{#1\par}
+\DeclareFieldFormat[book]{title}{#1\par}
 \DeclareFieldFormat[inproceedings]{title}{#1\par}
 \DeclareFieldFormat[misc]{title}{#1\par}
 \DeclareFieldFormat[report]{title}{#1\par}
@@ -199,6 +225,27 @@
   }
   \par\vspace{0.3\baselineskip}
 }
+
+\DeclareBibliographyDriver{book}{%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \printlist{publisher}%
+    \setunit*{\addcomma\space}%
+    \printfield{note}%
+    \setunit*{\addcomma\space}%
+    \printfield{year}%
+    \setunit{\addcomma\space}%
+    \printlist{location}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
 
 \DeclareBibliographyDriver{inproceedings}{%
   \printfield{title}%
@@ -258,16 +305,22 @@
 
 \DeclareNameFormat{author}{%
   \small\addfontfeature{Color=lightgray}%
-  \ifblank{#3}{}{#3\space}#1%
+  \nameparts{#1}\ifblank{\namepartgiven}{}{\namepartgiven\space}\namepartfamily%
   \ifthenelse{\value{listcount}<\value{liststop}}
     {\addcomma\space}
     {}%
 }
 
+\defbibheading{bibheading}[\bibname]{%
+   \subsubsection*{#1}
+   \markboth{#1}{#1}
+}
+
 \newcommand{\printbibsection}[2]{
   \begin{refsection}
+    \newrefcontext[sorting=chronological]%
     \nocite{*}
-    \printbibliography[sorting=chronological, type={#1}, title={#2}, heading=subbibliography]
+    \printbibliography[type={#1}, title={#2}, heading=bibheading]
   \end{refsection}
 }
 
@@ -282,5 +335,16 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2cm,nohead,nofoot]{geometry}
+\RequirePackage[left=6.1cm,top=2cm,right=2.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
 \RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=false,       
+    linkcolor=red,          
+    citecolor=red,        
+    filecolor=red,      
+    urlcolor = red}
+    
+% A fix for \href{}{} colors not working with fontspec
+\makeatletter
+\def\HyColor@@@@UseColor#1\@nil{\addfontfeatures{Color=#1}}
+\makeatother
